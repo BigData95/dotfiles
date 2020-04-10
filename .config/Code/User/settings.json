@@ -1,0 +1,62 @@
+{
+    //Format
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    //JS
+    "javascript.implicitProjectConfig.checkJs": true,
+    //css
+    "css.lint.boxModel" : "warning",
+    "css.lint.float": "warning",
+    "css.lint.idSelector": "warning",
+    //Html
+    "html.format.indentInnerHtml": true,
+    "html.format.indentHandlebars": true,
+    "html.suggest.html5": true,
+    "html.autoClosingTags": true,
+    "html.validate.scripts": true,
+    "html.validate.styles": true,
+    "auto-close-tag.enableAutoCloseTag": true,
+    //c
+    "editor.formatOnPaste": true,
+    "C_Cpp.clang_format_style": "google",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    //Better comments
+    "better-comments.multilineComments": true,
+    //BrackerPair        
+    "bracketPairColorizer.forceUniqueOpeningColor": true,
+    "bracketPairColorizer.showBracketsInGutter": true,
+
+    //General
+    "editor.multiCursorModifier": "alt",
+    "editor.detectIndentation": true,
+    "editor.quickSuggestionsDelay": 0,
+    //Fonts
+    "editor.fontFamily": "Fira Code, 'monospace', Consolas, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "files.autoSave": "afterDelay",
+    "window.titleBarStyle": "custom",
+    "codestream.email": "culturaonlinenw@gmail.com",
+
+    "breadcrumbs.enabled": true,
+    "sync.gist": "345065725e79a8f74fc52a74ac4fc889",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "window.zoomLevel": 0,
+    //python
+    "python.jediEnabled": false,
+    "python.dataScience.sendSelectionToInteractiveWindow": true
+        
+
+
+}
