@@ -8,7 +8,8 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="dogenpunk"
+ZSH_THEME="random"
+#dogenpunk
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -66,6 +67,7 @@ plugins=(git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	colored-man-pages
+	zsh-wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -95,4 +97,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias config='/usr/bin/git --git-dir=/home/ilich/dotfiles --work-tree=/home/ilich'
+alias config='/usr/bin/git --git-dir=/home/$USER/dotfiles --work-tree=/home/$USER'
+
+autoload -U colors && colors
+autoload -U compinit && compinit
+autoload -U vcs_info && vcs_info
+autoload -U url-quote-magic   
+zle -N self-insert url-quote-magic
+
+
