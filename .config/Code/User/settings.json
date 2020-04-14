@@ -1,36 +1,55 @@
 {
-    //Format
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    //JS
-    "javascript.implicitProjectConfig.checkJs": true,
-    //css
-    "css.lint.boxModel" : "warning",
-    "css.lint.float": "warning",
-    "css.lint.idSelector": "warning",
-    //Html
-    "html.format.indentInnerHtml": true,
-    "html.format.indentHandlebars": true,
+    //HTML
     "html.suggest.html5": true,
-    "html.autoClosingTags": true,
-    "html.validate.scripts": true,
-    "html.validate.styles": true,
+    "rainbowTags.hightlightType": "color",
     "auto-close-tag.enableAutoCloseTag": true,
-    //c
-    "editor.formatOnPaste": true,
-    "C_Cpp.clang_format_style": "google",
-    "C_Cpp.clang_format_fallbackStyle": "Google",
-    //Better comments
-    "better-comments.multilineComments": true,
-    //BrackerPair        
+    "auto-close-tag.enableAutoCloseSelfClosingTag": true,
+    "auto-close-tag.SublimeText3Mode": true,
+    "editor.autoClosingOvertype": "always",
+    "auto-close-tag.fullMode": true,
+    "html.format.indentInnerHtml": true,
+        //Auto Rename tags
+    "auto-rename-tag.activationOnLanguage": [
+            "html",
+            "xml",
+            "php",
+            "javascript"
+        ],
+        //BrackerPair        
     "bracketPairColorizer.forceUniqueOpeningColor": true,
     "bracketPairColorizer.showBracketsInGutter": true,
+    "bracketPairColorizer.colorMode":"Consecutive",
+    "bracketPairColorizer.activeScopeCSS":[
+        "borderStyle : solid",
+        "borderWidth : 1px",
+        "borderColor : {color}; opacity: 0.5"
+    ],
+       //Desactivar el de vscode para que funcione la anterior 
+    "editor.matchBrackets":"never",
 
+    //css
+    "css.lint.boxModel": "warning",
+    "css.lint.float": "warning",
+    "css.lint.idSelector": "warning",
+
+
+    //JS
+    "javascript.implicitProjectConfig.checkJs": true,
+    
+    //c
+    "C_Cpp.clang_format_style": "google",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+
+
+    //Formato
+    "editor.formatOnPaste": true,
+    //Save
+    "workbench.editor.highlightModifiedTabs": true,
+    "files.autoSave": "afterDelay",
+    "files.trimFinalNewlines": true, //Borra lineas extra al final 
+    //Suggestion
+    "editor.acceptSuggestionOnEnter": "off",
+    
     //General
     "editor.multiCursorModifier": "alt",
     "editor.detectIndentation": true,
@@ -38,25 +57,20 @@
     //Fonts
     "editor.fontFamily": "Fira Code, 'monospace', Consolas, 'Droid Sans Fallback'",
     "editor.fontLigatures": true,
-    "files.autoSave": "afterDelay",
+
     "window.titleBarStyle": "custom",
     "codestream.email": "culturaonlinenw@gmail.com",
 
     "breadcrumbs.enabled": true,
     "sync.gist": "345065725e79a8f74fc52a74ac4fc889",
+    "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "window.zoomLevel": 0,
-    //python
+
+    //python     
     "python.jediEnabled": false,
     "python.dataScience.sendSelectionToInteractiveWindow": true
-        
-
-
 }
