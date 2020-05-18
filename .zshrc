@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #Alias for config files
@@ -111,6 +111,8 @@ alias config='/usr/bin/git --git-dir=/home/$USER/dotfiles --work-tree=/home/$USE
 
 alias la="ls -A"
 alias ..="cd .."
+alias untar="tar -zxvf"
+alias c="clear"
 
 autoload -U colors && colors
 autoload -U compinit && compinit

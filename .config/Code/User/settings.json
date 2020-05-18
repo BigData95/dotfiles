@@ -1,76 +1,121 @@
 {
-    //HTML
-    "html.suggest.html5": true,
-    "rainbowTags.hightlightType": "color",
-    "auto-close-tag.enableAutoCloseTag": true,
-    "auto-close-tag.enableAutoCloseSelfClosingTag": true,
-    "auto-close-tag.SublimeText3Mode": true,
-    "editor.autoClosingOvertype": "always",
-    "auto-close-tag.fullMode": true,
-    "html.format.indentInnerHtml": true,
-        //Auto Rename tags
-    "auto-rename-tag.activationOnLanguage": [
-            "html",
-            "xml",
-            "php",
-            "javascript"
-        ],
-        //BrackerPair        
-    "bracketPairColorizer.forceUniqueOpeningColor": true,
-    "bracketPairColorizer.showBracketsInGutter": true,
-    "bracketPairColorizer.colorMode":"Consecutive",
-    "bracketPairColorizer.activeScopeCSS":[
-        "borderStyle : solid",
-        "borderWidth : 1px",
-        "borderColor : {color}; opacity: 0.5"
-    ],
-       //Desactivar el de vscode para que funcione la anterior 
-    "editor.matchBrackets":"never",
+  //HTML
+  "html.suggest.html5": true,
+  "rainbowTags.hightlightType": "color",
+  "auto-close-tag.enableAutoCloseTag": true,
+  "auto-close-tag.enableAutoCloseSelfClosingTag": true,
+  "auto-close-tag.SublimeText3Mode": true,
+  "editor.autoClosingOvertype": "always",
+  "auto-close-tag.fullMode": true,
+  "html.format.indentInnerHtml": true,
+  //Auto Rename tags
+  "auto-rename-tag.activationOnLanguage": ["html", "xml", "php", "javascript"],
+  //BrackerPair
+  "bracketPairColorizer.forceUniqueOpeningColor": true,
+  "bracketPairColorizer.showBracketsInGutter": true,
+  "bracketPairColorizer.colorMode": "Consecutive",
+  "bracketPairColorizer.activeScopeCSS": [
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : {color}; opacity: 0.5"
+  ],
+  //Desactivar el de vscode para que funcione la anterior
+  "editor.matchBrackets": "never",
 
-    //css
-    "css.lint.boxModel": "warning",
-    "css.lint.float": "warning",
-    "css.lint.idSelector": "warning",
+  //css
+  "css.lint.boxModel": "warning",
+  "css.lint.float": "warning",
+  "css.lint.idSelector": "warning",
+
+  //JS
+  "javascript.implicitProjectConfig.checkJs": true,
+
+  //c
+  "C_Cpp.clang_format_style": "google",
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+
+  //Formato
+  "editor.formatOnPaste": true,
+  //Save
+  "workbench.editor.highlightModifiedTabs": true,
+  "files.autoSave": "afterDelay",
+  "files.trimFinalNewlines": true, //Borra lineas extra al final
+  //Suggestion
+  //"editor.acceptSuggestionOnEnter": "off",
+  
+
+  //General
+  "editor.multiCursorModifier": "alt",
+  "editor.detectIndentation": true,
+  "editor.quickSuggestionsDelay": 0,
+  //Fonts
+  "editor.fontFamily": "Fira Code, 'monospace', Consolas, 'Droid Sans Fallback'",
+  "editor.fontLigatures": true,
+
+  "window.titleBarStyle": "custom",
+  "codestream.email": "culturaonlinenw@gmail.com",
+
+  "breadcrumbs.enabled": true,
+  "window.zoomLevel": 0,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  //python
+  "python.jediEnabled": false,
+  "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "python.pythonPath": "/usr/bin/python3.8",
+
+  //"macros": {
+  //  "copy": ["editor.action.clipboardCopyAction", "extension.vim_ctrl+c"]
+  //},
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 
 
-    //JS
-    "javascript.implicitProjectConfig.checkJs": true,
-    
-    //c
-    "C_Cpp.clang_format_style": "google",
-    "C_Cpp.clang_format_fallbackStyle": "Google",
+  //Plugin todo-tree
+  "todo-tree.tree.showScanModeButton": false,
 
-
-    //Formato
-    "editor.formatOnPaste": true,
-    //Save
-    "workbench.editor.highlightModifiedTabs": true,
-    "files.autoSave": "afterDelay",
-    "files.trimFinalNewlines": true, //Borra lineas extra al final 
-    //Suggestion
-    "editor.acceptSuggestionOnEnter": "off",
-    
-    //General
-    "editor.multiCursorModifier": "alt",
-    "editor.detectIndentation": true,
-    "editor.quickSuggestionsDelay": 0,
-    //Fonts
-    "editor.fontFamily": "Fira Code, 'monospace', Consolas, 'Droid Sans Fallback'",
-    "editor.fontLigatures": true,
-
-    "window.titleBarStyle": "custom",
-    "codestream.email": "culturaonlinenw@gmail.com",
-
-    "breadcrumbs.enabled": true,
-    "sync.gist": "345065725e79a8f74fc52a74ac4fc889",
-    "window.zoomLevel": 0,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-
-    //python     
-    "python.jediEnabled": false,
-    "python.dataScience.sendSelectionToInteractiveWindow": true
+  // Vim like
+  "editor.lineNumbers": "relative",
+  //Vim
+  "vim.useCtrlKeys": true,
+  "vim.neovimPath": "/usr/bin/nvim",
+  "vim.enableNeovim": true,
+  //easy-motion
+  "vim.easymotion": true,
+  "vim.easymotionKeys": "hklyuiopnm,qwertzxcvbasdgjf;",
+  "vim.easymotionJumpToAnywhereRegex": "\\b[A-Za-z0-9]|[A-Za-z0-9]\\b|_.|#.|[a-z][A-Z]",
+  "vim.statusBarColorControl": true,
+  "vim.sneak": true,
+  "vim.surround": true,
+  //"vscode-neovim.neovimInitPath": "~/.config/nvim/init.vim",
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5)",
+  "vim.autoindent": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.showcmd": true,
+  "vim.leader": "\\",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [" "],
+      "after": ["leader","leader","leader","b","d","w"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-n>": false,
+    "<C-k>": false
+  },
+  //Add by vim pluggin. Always change 
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  }
 }
