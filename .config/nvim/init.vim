@@ -41,3 +41,7 @@ map <F8> :set spelllang=en_us<CR>
 set spellfile=~/.vim/dict_es.add
 
 
+""" Move swap file so doesnt fuck with git
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
