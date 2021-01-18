@@ -1,2 +1,35 @@
 // Place your key bindings in this file to override the defaults
-[]
+[
+{ "key": "ctrl+f", "command": "workbench.action.terminal.focus"},
+{
+    "key": "ctrl+f",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+},
+{
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeActiveEditor"
+},
+{
+    "key": "ctrl+w",
+    "command": "-extension.vim_ctrl+w",
+    "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
+},
+{
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeGroup",
+    "when": "activeEditorGroupEmpty && multipleEditorGroups"
+},
+{
+    "key": "ctrl+w",
+    "command": "extension.vim_ctrl+w"
+},
+{
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+},
+{
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.closeOtherEditors"
+}
+]

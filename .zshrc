@@ -113,6 +113,9 @@ alias la="ls -A"
 alias ..="cd .."
 alias untar="tar -zxvf"
 alias c="clear"
+alias xamppstart="sudo /opt/lampp/lampp start"
+alias xamppstop="sudo /opt/lampp/lampp stop"
+alias xamppsql="sudo /opt/lampp/bin/mysql"
 
 autoload -U colors && colors
 autoload -U compinit && compinit
