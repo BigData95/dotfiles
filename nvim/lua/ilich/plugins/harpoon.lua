@@ -1,0 +1,94 @@
+return {
+  "ThePrimeagen/harpoon",
+  branch = "harpoon2",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+
+  config = function()
+    local harpoon = require("harpoon")
+
+    harpoon:setup()
+  end,
+
+  keys = {
+    {
+      "<leader>a",
+      function()
+        require("harpoon"):list():add()
+      end,
+      desc = "Harpoon add file",
+    },
+    {
+      "<leader>dr",
+       function()
+	require("harpoon"):list():remove()
+       end,
+       desc = "Harpoon remove current file",
+    },
+    {
+      "<C-e>",
+      function()
+        local harpoon = require("harpoon")
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end,
+      desc = "Harpoon quick menu",
+    },
+    {   
+      "<C-h>",
+      function()
+        require("harpoon"):list():select(1)
+      end,
+      desc = "Harpoon file 1",
+    },
+    {
+      "<C-t>",
+      function()
+        require("harpoon"):list():select(2)
+      end,
+      desc = "Harpoon file 2",
+    },
+    {
+      "<C-n>",
+      function()
+        require("harpoon"):list():select(3)
+      end,
+      desc = "Harpoon file 3",
+    },
+    {
+      "<C-s>",
+      function()
+        require("harpoon"):list():select(4)
+      end,
+      desc = "Harpoon file 4",
+    },
+    {
+     "<leader>h",
+      function()
+	require("harpoon"):list():replacer_at(1)
+      end,
+      desc = "Harpoon set file 1"
+    },
+    {
+     "<leader>t",
+      function()
+	require("harpoon"):list():replacer_at(2)
+      end,
+      desc = "Harpoon set file 2"
+    },
+    {
+     "<leader>n",
+      function()
+	require("harpoon"):list():replacer_at(3)
+      end,
+      desc = "Harpoon set file 3"
+    },
+    {
+     "<leader>s",
+      function()
+	require("harpoon"):list():replacer_at(4)
+      end,
+      desc = "Harpoon set file 4"
+    },
+  },
+}
