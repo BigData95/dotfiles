@@ -37,9 +37,6 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc =
 -- Project Navigation (The Tmux Sessionizer)
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Launch tmux-sessionizer fuzzy finder in new window" })
 
--- Code Cleanup (Manual LSP Formatting)
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Manually trigger active LSP formatter" })
-
 -- Global Project Error Navigation (Quickfix List)
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Jump to next quickfix error and center cursor" })
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Jump to previous quickfix error and center cursor" })

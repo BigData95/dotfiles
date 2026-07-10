@@ -11,8 +11,9 @@ if ! command -v brew &> /dev/null; then
 fi
 
 # 2. System Dependencies (Ripgrep, Stow, Build tools)
+# python3 is required by Mason to install the Python formatters (black, isort).
 echo "📦 Installing core system packages..."
-brew install ripgrep stow curl git make
+brew install ripgrep stow curl git make python3
 
 # 3. Neovim (Pre-compiled macOS ARM64 binary)
 # Note: macOS does not support AppImages. We use the tarball release.
@@ -41,7 +42,21 @@ npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
 npm install -g tree-sitter-cli
 
-# 6. GNU Stow (The Magic Symlinks)
+# 6. Terraform (Official HashiCorp tap)
+echo "🏗️  Installing Terraform..."
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+
+# 7. AWS CLI v2
+echo "☁️  Installing AWS CLI..."
+brew install awscli
+
+# 8. Nerd Font (Required for lualine/trouble/lspkind icons)
+echo "🔤 Installing JetBrainsMono Nerd Font..."
+brew install --cask font-jetbrains-mono-nerd-font
+echo "   ⚠️  Set your terminal font to 'JetBrainsMono Nerd Font' to see icons."
+
+# 9. GNU Stow (The Magic Symlinks)
 echo "🔗 Stowing Neovim configuration..."
 # This assumes you run the script from inside the dotfiles folder
 stow nvim -t ~/.config/
@@ -50,3 +65,6 @@ echo "✅ Setup Complete! Please ensure your ~/.zshrc has the following lines:"
 echo 'export PATH=$PATH:/usr/local/go/bin'
 echo 'export PATH=$PATH:$(go env GOPATH)/bin'
 echo 'export PATH=$PATH:~/.npm-global/bin'
+echo ""
+echo "ℹ️  LSP servers and formatters (black, isort, prettierd, gofumpt, goimports, stylua)"
+echo "   are installed automatically by Mason the first time you open nvim."

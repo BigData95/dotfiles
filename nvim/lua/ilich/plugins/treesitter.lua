@@ -29,6 +29,8 @@ return {
 
       "bash",
       "dockerfile",
+      "terraform",
+      "hcl",
       "sql",
       "markdown",
       "markdown_inline",

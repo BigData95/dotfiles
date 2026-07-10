@@ -30,7 +30,9 @@ vim.opt.cursorline = true    -- Highlight current line
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+local undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.fn.mkdir(undodir, "p") -- Neovim does not create custom undo dirs itself
+vim.opt.undodir = undodir
 
 -- Splits
 vim.opt.splitright = true -- Vertical splits open to the right

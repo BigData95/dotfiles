@@ -1,6 +1,7 @@
 local servers = {
   "lua_ls",
   "pyright",
+  "ruff",
   "gopls",
   "ts_ls",
   "eslint",
@@ -10,23 +11,19 @@ local servers = {
   "yamlls",
   "dockerls",
   "bashls",
+  "terraformls",
 }
 
 local default_servers = {
   "pyright",
+  "ruff",
   "ts_ls",
   "eslint",
   "html",
   "cssls",
-  "jsonls",
-  "yamlls",
   "dockerls",
   "bashls",
-}
-
-local format_on_save_servers = {
-  gopls = true,
-  lua_ls = true,
+  "terraformls",
 }
 
 return {
@@ -53,6 +50,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "b0o/schemastore.nvim",
     },
 
     config = function()
@@ -68,9 +66,6 @@ return {
             diagnostics = {
               globals = { "vim" },
             },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-            },
           },
         },
       })
@@ -81,6 +76,54 @@ return {
           gopls = {
             staticcheck = true,
             gofumpt = true,
+          },
+        },
+      })
+
+      -- JSON/YAML validation + completion from schemastore.org
+      -- (CloudFormation, GitHub Actions, docker-compose, tsconfig, ...)
+      vim.lsp.config("jsonls", {
+        capabilities = capabilities,
+        settings = {
+          json = {
+            schemas = require("schemastore").json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      })
+
+      vim.lsp.config("yamlls", {
+        capabilities = capabilities,
+        settings = {
+          yaml = {
+            schemaStore = {
+              -- Disable built-in store; schemastore.nvim provides a
+              -- newer catalog and avoids duplicate schema matches.
+              enable = false,
+              url = "",
+            },
+            schemas = require("schemastore").yaml.schemas(),
+            -- CloudFormation intrinsic function tags
+            customTags = {
+              "!Ref",
+              "!Sub",
+              "!Sub sequence",
+              "!GetAtt",
+              "!GetAZs",
+              "!ImportValue",
+              "!Base64",
+              "!Cidr sequence",
+              "!Join sequence",
+              "!Select sequence",
+              "!Split sequence",
+              "!FindInMap sequence",
+              "!If sequence",
+              "!Equals sequence",
+              "!Not sequence",
+              "!And sequence",
+              "!Or sequence",
+              "!Condition",
+            },
           },
         },
       })
@@ -100,24 +143,13 @@ return {
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           local opts = { buffer = event.buf }
 
-          if client and client:supports_method("textDocument/inlayHint") then
-            vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+          -- Ruff only lints; let pyright own hover docs
+          if client and client.name == "ruff" then
+            client.server_capabilities.hoverProvider = false
           end
 
-          if client
-            and format_on_save_servers[client.name]
-            and client:supports_method("textDocument/formatting")
-          then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = event.buf,
-              callback = function()
-                vim.lsp.buf.format({
-                  bufnr = event.buf,
-                  id = client.id,
-                  timeout_ms = 1000,
-                })
-              end,
-            })
+          if client and client:supports_method("textDocument/inlayHint") then
+            vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
           end
 
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, {
@@ -146,15 +178,6 @@ return {
 
           vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, {
             desc = "Code action",
-          }))
-
-          vim.keymap.set("n", "<leader>f", function()
-            vim.lsp.buf.format({
-              async = true,
-              bufnr = event.buf,
-            })
-          end, vim.tbl_extend("force", opts, {
-            desc = "Format file",
           }))
 
           vim.keymap.set("n", "[d", function()

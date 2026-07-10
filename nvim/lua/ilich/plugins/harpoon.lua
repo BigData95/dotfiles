@@ -63,32 +63,32 @@ return {
       desc = "Harpoon file 4",
     },
     {
-     "<leader>h",
+      "<leader><C-h>",
       function()
-	require("harpoon"):list():replacer_at(1)
+        require("harpoon"):list():replace_at(1)
       end,
-      desc = "Harpoon set file 1"
+      desc = "Harpoon set file 1",
     },
     {
-     "<leader>t",
+      "<leader><C-t>",
       function()
-	require("harpoon"):list():replacer_at(2)
+        require("harpoon"):list():replace_at(2)
       end,
-      desc = "Harpoon set file 2"
+      desc = "Harpoon set file 2",
     },
     {
-     "<leader>n",
+      "<leader><C-n>",
       function()
-	require("harpoon"):list():replacer_at(3)
+        require("harpoon"):list():replace_at(3)
       end,
-      desc = "Harpoon set file 3"
+      desc = "Harpoon set file 3",
     },
     {
-     "<leader>s",
+      "<leader><C-s>",
       function()
-	require("harpoon"):list():replacer_at(4)
+        require("harpoon"):list():replace_at(4)
       end,
-      desc = "Harpoon set file 4"
+      desc = "Harpoon set file 4",
     },
   },
 }
